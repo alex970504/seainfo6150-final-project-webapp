@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "button-icons";
+    font-style: normal;
+    font-weight: normal;
+}
+:root {
+    --color-surface: white;
+    --color-solid: #232323;
+    --color-decorated: rgb(247, 124, 9);
+    --color-minor: #727272;
+    --color-striking: #f05000;
+    --color-opacity-black: rgba(0, 0, 0, 0.4);
+    --filter-blur: blur(4px);
+}
+.clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-solid);
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+}
+.clickable::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--color-decorated);
+    transition: width 0.3s;
+}
+.clickable:hover::after {
+    width: 100%;
+}
+.baseButton {
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.4s;
+    border-radius: 10px;
+    background-color: var(--color-surface);
+    color: var(--color-decorated);
+    border: 2px solid var(--color-decorated)
+}
+.baseButton.reverse {
+    background-color: var(--color-decorated);
+    color: var(--color-surface);
+    border: 2px solid var(--color-surface);
+}
+.baseButton.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.baseButton:not(.disabled):hover {
+    background-color: var(--color-striking);
+    color: var(--color-surface);
+    border-color: var(--color-surface);
+}
+.showPopup {
+    filter: var(--filter-blur);
+}
+
+body {
+    margin: 0;
+    color: var(--color-solid);
+}
+h1 {
+    font-size: 2em;
+}

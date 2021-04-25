@@ -5,11 +5,15 @@
   "private": true,
   "proxy": "https://validator.w3.org/",
   "dependencies": {
+    "ulid": "^2.3.0",
+    "localforage": "^1.7.3",
+    "jssha": "^2.3.1",
     "lodash": "4.17.20",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "prop-types": "latest"
   },
   "devDependencies": {
     "@testing-library/react": "10.4.5",

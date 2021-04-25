@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  box-shadow: 0px -2px 8px;
+  box-sizing: border-box;
+  font-family: Chilanka, "Lucida Console", Monaco, serif;
+  background-color: var(--color-surface);
+  position: fixed;
+  bottom: 0px;
+}
+
+@media screen and (max-height: 600px) {
+  .footer {
+    position: static;
+  }
+}
+.container {
+  max-width: 60rem;
+  text-align: center;
+  margin: auto;
+  list-style: none;
+  height: 80px;
+  line-height: 80px;
+  padding: 0;
+}
+.container li {
+  display: inline-block;
+}
+.footerBtn {
+  font-size: 18px;
+  margin-right: 20px;
+  height: 40px;
+  line-height: 40px;
+}
+.showPopup {
+  filter: var(--filter-blur);
+}
+@media screen and (max-width: 414px) {
+  .footer {
+    position: static;
+    box-shadow: none;
+    border-top: 1px solid var(--color-minor);
+  }
+}
+@media screen and (min-width: 414px) and (max-width: 480px) {
+  .footer {
+    font-size: smaller;
+  }
+}

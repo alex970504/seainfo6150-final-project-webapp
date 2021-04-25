@@ -1,69 +1,57 @@
-import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import React, {useState, useEffect, useCallback} from "react";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-import Home from "./Home/Home.jsx";
-import Foo from "./Foo/Foo.jsx";
-import Bar from "./Bar/Bar.jsx";
-import Baz from "./Baz/Baz.jsx";
-import Error from "./Error/Error.jsx";
-
-// here is some external content. look at the /baz route below
-// to see how this content is passed down to the components via props
-const externalContent = {
-  id: "article-1",
-  title: "An Article",
-  author: "April Bingham",
-  text: "Some text in the article",
-};
+import Home from "./Pages/Home";
+import Header from "./Pages/Header";
+import Footer from "./Pages/Footer";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Error from "./Pages/Error";
+import Search from "./Pages/Search";
+import AllCategories from "./Pages/AllCategories";
+import Category from "./Pages/Category";
+import Detail from "./Pages/Detail";
+import Popup from "./Pages/Popup";
+import Login from "./Pages/Login";
+import {getStatus} from "./Proxy/UserData";
+import "./App.css";
+import EVENT from "./Proxy/Event";
+import {PopupContext, SHOW, HIDE} from "./context/showPopupContext";
 
 function App() {
+  const [hasPopup, setHasPopup] = useState(false);
+  const handleDisplay = useCallback((e) => { setHasPopup(true); }, []);
+  const handleDismiss = useCallback((e) => { setHasPopup(false); }, []);
+  useEffect(() => {
+    window.addEventListener(EVENT.DISPLAY_POPUP, handleDisplay);
+    window.addEventListener(EVENT.DISMISS_POPUP, handleDismiss);
+    return () => {
+      window.removeEventListener(EVENT.DISPLAY_POPUP, handleDisplay);
+      window.removeEventListener(EVENT.DISMISS_POPUP, handleDismiss);
+    };
+  });
   return (
-    <>
-      <header>
-        <nav>
-          <ul>
-            {/* these links should show you how to connect up a link to a specific route */}
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/foo">Foo</Link>
-            </li>
-            <li>
-              <Link to="/bar/hats/sombrero">Bar</Link>
-            </li>
-            <li>
-              <Link to="/baz">Baz</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/foo" exact component={Foo} />
-        {/* passing parameters via a route path */}
-        <Route
-          path="/bar/:categoryId/:productId"
-          exact
-          render={({ match }) => (
-            // getting the parameters from the url and passing
-            // down to the component as props
-            <Bar
-              categoryId={match.params.categoryId}
-              productId={match.params.productId}
-            />
-          )}
-        />
-        <Route
-          path="/baz"
-          exact
-          render={() => <Baz content={externalContent} />}
-        />
-        <Route component={Error} />
-      </Switch>
-    </>
+      <Router >
+        <PopupContext.Provider value={hasPopup ? SHOW : HIDE}>
+          <Header userInfo={getStatus()} hasPopup={hasPopup}/>
+          <div className={hasPopup ? "showPopup" : ""}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" exact component={About} />
+              <Route path="/contact" exact component={Contact} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/allcategories" exact component={AllCategories} />
+              <Route path="/category/:categoryId" exact render={({match})=> <Category id={match.params.categoryId}/>}/>
+              <Route path="/detail/:itemId" exact render={({match})=> <Detail id={match.params.itemId}/>}/>
+              <Route path="/search/:keyword" exact render={({match})=> <Search keyword={match.params.keyword}/>}/>
+              <Route path="/404" exact component={Error}/>
+              <Route component={Error} />
+            </Switch>
+          </div>
+          <Footer hasPopup={hasPopup}/>
+        </PopupContext.Provider>
+        <Popup/>
+      </Router>
   );
 }
 

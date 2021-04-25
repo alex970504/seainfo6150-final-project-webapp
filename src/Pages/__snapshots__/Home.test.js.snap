@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the home component correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="text"
+      tabindex="0"
+    >
+      <img
+        alt="Duck with Orange Hazelnut Stuffing"
+        class="pic"
+        src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+      />
+    </div>
+    <div
+      class="text"
+    >
+      <h1
+        class="just"
+      >
+        Featured Special
+      </h1>
+      <div
+        class="grid"
+      >
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Perfect Prime Rib"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Perfect Prime Rib
+          </div>
+        </div>
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Keto Sugar-Free Cheesecake"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Keto Sugar-Free Cheesecake
+          </div>
+        </div>
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Cheesy Spinach Dip Christmas Tree"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Cheesy Spinach Dip Christmas Tree
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="text"
+    >
+      <h1
+        class="just"
+      >
+        Popular Picks
+      </h1>
+      <div
+        class="grid"
+      >
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Deep-Dish Layered Banana Pudding"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Deep-Dish Layered Banana Pudding
+          </div>
+        </div>
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Chocolate Chip Cookies"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Chocolate Chip Cookies
+          </div>
+        </div>
+        <div
+          class="gri"
+          tabindex="0"
+        >
+          <img
+            alt="Chocolate Brownies"
+            class="image"
+            src="https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+          />
+          <div
+            class="word"
+          >
+            Chocolate Brownies
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

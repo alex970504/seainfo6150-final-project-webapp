@@ -1,0 +1,13 @@
+[{
+  "id": "1",
+  "name": "Breakfast",
+  "imageURL": "https://live.staticflickr.com/65535/51135758700_66d2fc7a40_z.jpg"
+}, {
+  "id": "2",
+  "name": "Dinner",
+  "imageURL": "https://live.staticflickr.com/65535/51134657326_bcc7161e10_b.jpg"
+}, {
+  "id": "3",
+  "name": "Dessert",
+  "imageURL": "https://live.staticflickr.com/65535/51134877363_46f6bff7b9_k.jpg"
+}]
